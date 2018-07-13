@@ -13,6 +13,12 @@ def rebill(sample, trans):
 	reduced_intersection = intersect.map(lambda x: (x[1][0], 1)).reduceByKey(lambda a,b: a+b).collect()
 	return reduced_intersection_no_dupe, reduced_intersection
 
+def revenue(sample, trans):
+	clean_trans = trans.map(lambda x: (x[1], x[3]))
+	intersect = sample.join(clean_trans)
+	reduced_intersection = intersect.map(lambda x: (x[1][0], 1, x[1][1])).reduceByKey(lambda a,b: a+b).collect()
+	return reduced_intersection
+
 conf = SparkConf().setAppName("seedbox-test").setMaster("local")
 sc = SparkContext(conf=conf)
 
