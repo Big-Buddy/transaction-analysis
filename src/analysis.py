@@ -9,8 +9,9 @@ def probability(sample):
 def rebill(sample, trans):
 	clean_trans = trans.map(lambda x: (x[1], x[2])).filter(lambda x: x[1] == 'REBILL')
 	intersect = sample.join(clean_trans)
+	reduced_intersection_no_dupe = intersect.distinct().map(lambda x: (x[1][0], 1)).reduceByKey(lambda a,b: a+b).collect()
 	reduced_intersection = intersect.map(lambda x: (x[1][0], 1)).reduceByKey(lambda a,b: a+b).collect()
-	return reduced_intersection
+	return reduced_intersection_no_dupe, reduced_intersection
 
 conf = SparkConf().setAppName("seedbox-test").setMaster("local")
 sc = SparkContext(conf=conf)
