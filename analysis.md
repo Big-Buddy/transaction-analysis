@@ -24,5 +24,17 @@ From the second analysis it clearly follows that those in the test group were mo
 ~10.5% of users in test group rebilled at least once
 
 ### Revenue Comparison
+Of the total number of transactions in the sample (7430), 4050 were from the control group while 3380 were from the test group. The total revenues from both groups were ~89838.90 and ~95433.50 respectively.
+From these results we can see that while the proportion of test group users is much smaller than the control group, the test group is responsible for more overall revenues, thus we can conclude that the test group (being a representative sample of all users who have to call-in) is disproportionately responsible for giving the company revenue from these transactions.
+
+The average total transaction amount for users who had a transaction of any type is:
+~83.03 for control group
+~58.08 for test group
+
+The average total transaction amount for all users (thus here we expand our scope to include users who have no transactions and assign them a default transaction amount of 0):
+~2.00 for control group
+~6.43 for test group
+
+Given all these results we can conclude that users who call-in do in fact generate more revenue on average when we take into consideration the sheer amount of control group users who do not make any transactions at all. The proportion of test group users who have at least 1 transaction is simply greater which means they not only contribute more overall, they contribute more on average (contributions is in terms of revenue here).
 
 ### Chargeback Rate Comparison
