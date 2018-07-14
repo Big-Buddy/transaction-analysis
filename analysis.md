@@ -2,7 +2,7 @@
 
 ## Environment 
 OS: Scientific Linux 7.3
-Engine: Apache Spark 2.2.0 (Pyspark - Python 3.5.1)
+Technologies used: Apache Spark 2.2.0 (Pyspark - Python 3.5.1)
 
 ## Analysis
 
@@ -52,3 +52,21 @@ The average transaction amount for chargebacks and refunds across all users:
 ~ -0.37 for test group
 
 From these results it follows that while the control group contributed more overall to the negative transaction amount, each individual user in the test group contributed more on average than members of the control group with respect to both users who had at least 1 chargeback/refund and all users (even those who did not contribute anything). Thus, we can conclude that users in the test group produce higher chargeback rates on average.
+
+## Conclusions and Statistical Significance
+
+Calculations were done using abtestguide.com's A/B Testing Significance Calculator at a confidence of 95%.
+
+In the case of an A/B test our concern is the conversion rate, specifically how the control and test groups differ on a given issue.
+
+### Rebill Comparison
+
+In this case we are seeing a 400.31% conversion rate increase for the test group, according to our confidence this is statistically significant and not a result of random chance.
+
+### Revenue Comparison
+
+When looking at whether the number of users who make transactions we see a 359.45% conversion rate increase for the test group and according to our confidence this is statistically significant and not a result of random chance. This does not necesarrily relate directly to total revenues.
+
+### Chargeback Rate Comparison
+
+Once again we are looking at simply the number of transactions which match our target (REFUND/CHARGEBACK); here we see a 86.69% higher conversion rate for the test group which at our confidence level is statistically significant.
