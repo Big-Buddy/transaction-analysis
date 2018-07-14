@@ -40,3 +40,15 @@ Given all these results we can conclude that users who call-in do in fact genera
 
 ### Chargeback Rate Comparison
 ASSUMPTION: I recognize the chargeback rate to be any transaction amount value which is negative - thus my analysis is done believing that the relevant transaction_type is REFUND and CHARGEBACK.
+
+My analysis showed that there were 294 chargebacks/refunds from the control group and 175 chargebacks/refunds from the test group. The net amount for both groups is ~ -7520.30 and ~ -5436.25 respectively. The number of unique users who used the target transaction type is 141 and 87 respectively.
+
+Following the same procedure as in the revenue analysis, the average transaction amount for chargebacks and refunds for users who had at least 1 transaction of type CHARGEBACK/REFUND is:
+~ -53.34 for control group
+~ -62.48 for test group
+
+The average transaction amount for chargebacks and refunds across all users:
+~ -0.13 for control group
+~ -0.37 for test group
+
+From these results it follows that while the control group contributed more overall to the negative transaction amount, each individual user in the test group contributed more on average than members of the control group with respect to both users who had at least 1 chargeback/refund and all users (even those who did not contribute anything). Thus, we can conclude that users in the test group produce higher chargeback rates on average.
