@@ -21,10 +21,11 @@ def revenue(sample, trans):
 	return total_users, reduced_intersection
 
 def chargeback(sample, trans):
-	clean_trans = trans.map(lambda x: (x[1], x[2])).filter(lambda x: x[1] == 'REFUND' or x[1] == 'CHARGEBACK')
+	clean_trans = trans.filter(lambda x: x[2] == 'REFUND' or x[2] == 'CHARGEBACK').map(lambda x: (x[1], x[3]))
 	intersect = sample.join(clean_trans)
+	total_users = intersect.distinct().map(lambda x: (x[1][0], 1)).reduceByKey(lambda a,b: a+b).collect()
 	reduced_intersection = intersect.map(lambda x: (x[1][0], (1, float(x[1][1])))).reduceByKey(lambda a,b: (a[0]+b[0], a[1]+b[1])).collect()
-	return reduced_intersection_no_dupe, reduced_intersection
+	return total_users, reduced_intersection
 
 conf = SparkConf().setAppName("seedbox-test").setMaster("local")
 sc = SparkContext(conf=conf)
@@ -41,3 +42,4 @@ transactionRDD = transactionRDD.filter(lambda x: x != transactionHeader)
 #print(probability(sampleRDD))
 #print(rebill(sampleRDD, transactionRDD))
 #print(revenue(sampleRDD, transactionRDD))
+print(chargeback(sampleRDD, transactionRDD))
