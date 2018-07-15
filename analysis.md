@@ -1,8 +1,8 @@
 # seedbox-test performed by Alexandre Pelletier (a.pelletier0x7c9@gmail.com)
 
 ## Environment 
-OS: Scientific Linux 7.3
-Technologies used: Apache Spark 2.2.0 (Pyspark - Python 3.5.1)
+OS: Scientific Linux 7.3/Windows 7
+Technologies used: Apache Spark 2.2.0 (Pyspark - Python 3.5.1), matplotlib, seaborn, scipy
 
 ## Analysis
 
@@ -13,7 +13,9 @@ If we denote our control group as A and our test group as B we have the followin
 P(A) = 0.752
 P(B) = 0.248
 
-Considering that the distribution is clearly binomial (dichotomy: you are either in the control group or the test group), we can use either normal or Poisson approximation to determine the "approximate probability distribution". Without knowing our N (population size) it is difficult to say whether n is large enough to yield a result which would be significant, though in most realistic cases it would be more than enough (where population sizes are not astronomical). We can also say that because n * P(A) or n * P(B) would result in relatively large numbers, a Poisson approximation would not be ideal. Thus a normal approximation to the binomial distribution can be used to approximate the probability of any given number of individuals being in the control or test group.
+Considering that the distribution is clearly binomial (dichotomy: you are either in the control group or the test group), we can use either normal or Poisson approximation to determine the "approximate probability distribution". Without knowing our N (population size) it is difficult to say whether n is large enough to yield a result which can be approximated, though in most realistic cases it would be more than enough (where population sizes are not astronomical). We can also say that because n * P(A) or n * P(B) would result in relatively large numbers, thus a Poisson approximation would not be ideal. From all this, a normal approximation to the binomial distribution can be used to approximate the probability of any given number of individuals being in the control or test group.
+
+![Binomial Distribution of Test Group Users](Figure_1.png)
 
 ### Rebill Comparison
 With the total number of rebills being 6961, my analysis found that 3756 of these were from the control group, and 3205 of these were from the test group.
