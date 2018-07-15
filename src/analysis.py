@@ -48,6 +48,7 @@ transactionRDD = transactionRDD.filter(lambda x: x != transactionHeader)
 #print(chargeback(sampleRDD, transactionRDD))
 
 ### Probability Distribution Graph
+plt.use('Agg')
 x = np.arange(-1, 200)
 n, p = 59721, 0.752
 dist = binom(n, p)
