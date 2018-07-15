@@ -1,5 +1,6 @@
 import csv
 import numpy as np
+from scipy.stats import binom
 import matplotlib.pyplot as plt
 from pyspark import SparkContext, SparkConf
 
@@ -47,7 +48,9 @@ transactionRDD = transactionRDD.filter(lambda x: x != transactionHeader)
 #print(chargeback(sampleRDD, transactionRDD))
 
 ### Probability Distribution Graph
+x = np.arange(-1, 200)
 n, p = 59721, 0.752
-s = np.random.binomial(n, p, 10000)
-plt.plot(s)
+dist = binom(n, p)
+plt.plot(x, dist.pmf(x), c='red', linestyle='steps-mid')
+
 plt.show()
