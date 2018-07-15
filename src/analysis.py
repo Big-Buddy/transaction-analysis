@@ -1,4 +1,5 @@
 import csv
+import numpy as np
 from pyspark import SparkContext, SparkConf
 
 def probability(sample):
@@ -42,4 +43,8 @@ transactionRDD = transactionRDD.filter(lambda x: x != transactionHeader)
 #print(probability(sampleRDD))
 #print(rebill(sampleRDD, transactionRDD))
 #print(revenue(sampleRDD, transactionRDD))
-print(chargeback(sampleRDD, transactionRDD))
+#print(chargeback(sampleRDD, transactionRDD))
+
+### Probability Distribution Graph
+n, p = 59721, 0.752
+s = np.random.binomial(n, p, 10000)
