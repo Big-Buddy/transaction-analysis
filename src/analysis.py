@@ -1,5 +1,6 @@
 import csv
 import numpy as np
+import matplotlib.pyplot as plt
 from pyspark import SparkContext, SparkConf
 
 def probability(sample):
@@ -48,3 +49,5 @@ transactionRDD = transactionRDD.filter(lambda x: x != transactionHeader)
 ### Probability Distribution Graph
 n, p = 59721, 0.752
 s = np.random.binomial(n, p, 10000)
+plt.plot(s)
+plt.show()
